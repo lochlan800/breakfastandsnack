@@ -305,19 +305,14 @@ function shuffle(arr) {
     return a;
 }
 
-function pickForWeek(arr, count) {
-    var shuffled = shuffle(arr);
-    var result = [];
-    for (var i = 0; i < count; i++) {
-        result.push(shuffled[i % shuffled.length]);
-    }
-    return result;
+function pickForWeek(arr) {
+    return shuffle(arr).slice(0, 7);
 }
 
 function generateWeek() {
-    var bfPicks = pickForWeek(breakfasts, 7);
-    var msPicks = pickForWeek(morningSnacks, 7);
-    var asPicks = pickForWeek(afternoonSnacks, 7);
+    var bfPicks = pickForWeek(breakfasts);
+    var msPicks = pickForWeek(morningSnacks);
+    var asPicks = pickForWeek(afternoonSnacks);
 
     weekPlan = [];
     for (var i = 0; i < 7; i++) {
@@ -337,10 +332,30 @@ function generateWeek() {
     document.getElementById('generate-btn').textContent = 'Regenerate Whole Week';
 }
 
+function pickExcluding(allMeals, usedMeals) {
+    var available = [];
+    for (var i = 0; i < allMeals.length; i++) {
+        var taken = false;
+        for (var j = 0; j < usedMeals.length; j++) {
+            if (allMeals[i] === usedMeals[j]) { taken = true; break; }
+        }
+        if (!taken) available.push(allMeals[i]);
+    }
+    if (available.length === 0) available = allMeals;
+    return available[Math.floor(Math.random() * available.length)];
+}
+
 function regenerateDay(index) {
-    weekPlan[index].breakfast = breakfasts[Math.floor(Math.random() * breakfasts.length)];
-    weekPlan[index].morningSnack = morningSnacks[Math.floor(Math.random() * morningSnacks.length)];
-    weekPlan[index].afternoonSnack = afternoonSnacks[Math.floor(Math.random() * afternoonSnacks.length)];
+    var usedBf = [], usedMs = [], usedAs = [];
+    for (var i = 0; i < weekPlan.length; i++) {
+        if (i === index) continue;
+        usedBf.push(weekPlan[i].breakfast);
+        usedMs.push(weekPlan[i].morningSnack);
+        usedAs.push(weekPlan[i].afternoonSnack);
+    }
+    weekPlan[index].breakfast = pickExcluding(breakfasts, usedBf);
+    weekPlan[index].morningSnack = pickExcluding(morningSnacks, usedMs);
+    weekPlan[index].afternoonSnack = pickExcluding(afternoonSnacks, usedAs);
     renderDay(index);
     renderShoppingList();
 }
