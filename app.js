@@ -6,7 +6,7 @@ const breakfasts = [
     {
         name: "Banana & Oat Energy Bowl",
         ingredients: [
-            "80g rolled oats (complex carbs)",
+            "80g rolled oats",
             "1 sliced banana",
             "Handful of fresh blueberries",
             "1 tbsp natural peanut butter (no additives)",
@@ -15,7 +15,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Banana", "Blueberries"],
         prep: "Cook oats with milk, top with banana, blueberries, peanut butter, and honey.",
-        macros: { carbs: 60, protein: 14, fat: 16, fibre: 10 }
+        macros: { carbs: 60, protein: 14, fat: 16, fibre: 10 },
+        shopping: { fruit: ["1 banana", "Fresh blueberries"], grains: ["Rolled oats"], dairy: ["Whole milk or oat milk"], pantry: ["Natural peanut butter", "Raw honey"] }
     },
     {
         name: "Wholemeal Toast with Avocado & Tomatoes",
@@ -29,7 +30,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Avocado", "Tomatoes"],
         prep: "Toast bread, spread avocado, layer tomatoes, season and sprinkle seeds.",
-        macros: { carbs: 52, protein: 12, fat: 18, fibre: 12 }
+        macros: { carbs: 52, protein: 12, fat: 18, fibre: 12 },
+        shopping: { fruit: ["1 avocado", "2 tomatoes"], grains: ["Wholemeal bread (bakery fresh)"], pantry: ["Mixed seeds", "Lemon juice", "Sea salt & black pepper"] }
     },
     {
         name: "Berry & Mango Overnight Oats",
@@ -43,7 +45,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Raspberries", "Mango"],
         prep: "Mix oats, yoghurt, milk, and chia seeds the night before. Top with fruit in the morning.",
-        macros: { carbs: 58, protein: 16, fat: 12, fibre: 11 }
+        macros: { carbs: 58, protein: 16, fat: 12, fibre: 11 },
+        shopping: { fruit: ["Fresh raspberries", "1 mango"], grains: ["Rolled oats"], dairy: ["Natural yoghurt", "Whole milk"], pantry: ["Chia seeds"] }
     },
     {
         name: "Sweet Potato & Spinach Scramble",
@@ -57,7 +60,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Sweet Potato", "Spinach"],
         prep: "Roast sweet potato (or microwave 5 min), scramble eggs with spinach, serve on toast.",
-        macros: { carbs: 55, protein: 20, fat: 15, fibre: 9 }
+        macros: { carbs: 55, protein: 20, fat: 15, fibre: 9 },
+        shopping: { veg: ["1 sweet potato", "Fresh spinach"], grains: ["Wholemeal bread (bakery fresh)"], dairy: ["2 free-range eggs"], pantry: ["Olive oil", "Smoked paprika"] }
     },
     {
         name: "Apple & Cinnamon Porridge",
@@ -71,7 +75,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Apple"],
         prep: "Cook oats with milk, stir in grated apple and cinnamon, top with raisins and maple syrup.",
-        macros: { carbs: 65, protein: 12, fat: 8, fibre: 10 }
+        macros: { carbs: 65, protein: 12, fat: 8, fibre: 10 },
+        shopping: { fruit: ["1 apple"], grains: ["Rolled oats"], dairy: ["Whole milk"], pantry: ["Ground cinnamon", "Raisins", "Pure maple syrup"] }
     },
     {
         name: "Tropical Smoothie Bowl",
@@ -85,7 +90,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Banana", "Mango", "Pineapple"],
         prep: "Blend banana, mango, pineapple, and coconut milk until thick. Pour into bowl, top with oats and coconut.",
-        macros: { carbs: 62, protein: 8, fat: 14, fibre: 8 }
+        macros: { carbs: 62, protein: 8, fat: 14, fibre: 8 },
+        shopping: { fruit: ["1 banana", "1 mango", "Fresh pineapple"], grains: ["Rolled oats"], pantry: ["Coconut milk (no emulsifiers)", "Desiccated coconut"] }
     },
     {
         name: "Wholemeal Pancakes with Fresh Berries",
@@ -99,7 +105,8 @@ const breakfasts = [
         ],
         fruitVeg: ["Strawberries", "Blueberries"],
         prep: "Mix flour, egg, and milk into batter. Cook small pancakes in a dry non-stick pan. Top with berries and honey.",
-        macros: { carbs: 64, protein: 16, fat: 10, fibre: 8 }
+        macros: { carbs: 64, protein: 16, fat: 10, fibre: 8 },
+        shopping: { fruit: ["Fresh strawberries", "Fresh blueberries"], grains: ["Wholemeal flour"], dairy: ["1 free-range egg", "Whole milk"], pantry: ["Raw honey"] }
     }
 ];
 
@@ -113,7 +120,8 @@ const morningSnacks = [
         ],
         fruitVeg: ["Apple"],
         prep: "Slice apple and dip in almond butter.",
-        macros: { carbs: 28, protein: 4, fat: 9, fibre: 5 }
+        macros: { carbs: 28, protein: 4, fat: 9, fibre: 5 },
+        shopping: { fruit: ["1 apple"], pantry: ["Natural almond butter", "Ground cinnamon"] }
     },
     {
         name: "Carrot & Cucumber Sticks with Hummus",
@@ -124,7 +132,8 @@ const morningSnacks = [
         ],
         fruitVeg: ["Carrots", "Cucumber"],
         prep: "Cut veg into sticks and serve with hummus.",
-        macros: { carbs: 22, protein: 6, fat: 8, fibre: 6 }
+        macros: { carbs: 22, protein: 6, fat: 8, fibre: 6 },
+        shopping: { veg: ["2 carrots", "1 cucumber"], pantry: ["Chickpeas (tinned or dried)", "Tahini", "Lemon", "Garlic"] }
     },
     {
         name: "Banana & Oat Energy Bites",
@@ -136,7 +145,8 @@ const morningSnacks = [
         ],
         fruitVeg: ["Banana"],
         prep: "Mix all ingredients, roll into balls, refrigerate for 30 min.",
-        macros: { carbs: 35, protein: 6, fat: 8, fibre: 4 }
+        macros: { carbs: 35, protein: 6, fat: 8, fibre: 4 },
+        shopping: { fruit: ["1 banana"], grains: ["Rolled oats"], pantry: ["Natural peanut butter", "Raisins"] }
     },
     {
         name: "Fresh Orange & Mixed Nuts",
@@ -146,7 +156,8 @@ const morningSnacks = [
         ],
         fruitVeg: ["Oranges"],
         prep: "Peel and segment oranges, enjoy with a handful of nuts.",
-        macros: { carbs: 30, protein: 5, fat: 10, fibre: 5 }
+        macros: { carbs: 30, protein: 5, fat: 10, fibre: 5 },
+        shopping: { fruit: ["2 oranges"], pantry: ["Raw unsalted mixed nuts"] }
     },
     {
         name: "Grapes & Oatcakes",
@@ -157,7 +168,32 @@ const morningSnacks = [
         ],
         fruitVeg: ["Grapes"],
         prep: "Spread cream cheese on oatcakes, eat alongside grapes.",
-        macros: { carbs: 32, protein: 4, fat: 7, fibre: 3 }
+        macros: { carbs: 32, protein: 4, fat: 7, fibre: 3 },
+        shopping: { fruit: ["Grapes"], grains: ["Plain oatcakes (no preservatives)"], dairy: ["Natural cream cheese"] }
+    },
+    {
+        name: "Pear & Walnut Snack",
+        ingredients: [
+            "1 ripe pear, sliced",
+            "Small handful of walnuts",
+            "Drizzle of honey"
+        ],
+        fruitVeg: ["Pear"],
+        prep: "Slice pear and eat with walnuts and a drizzle of honey.",
+        macros: { carbs: 30, protein: 3, fat: 8, fibre: 5 },
+        shopping: { fruit: ["1 pear"], pantry: ["Walnuts", "Raw honey"] }
+    },
+    {
+        name: "Melon & Cottage Cheese",
+        ingredients: [
+            "2 thick slices of cantaloupe melon",
+            "3 tbsp natural cottage cheese",
+            "Sprinkle of sunflower seeds"
+        ],
+        fruitVeg: ["Melon"],
+        prep: "Slice melon, top with cottage cheese and seeds.",
+        macros: { carbs: 22, protein: 8, fat: 5, fibre: 2 },
+        shopping: { fruit: ["1 cantaloupe melon"], dairy: ["Natural cottage cheese"], pantry: ["Sunflower seeds"] }
     }
 ];
 
@@ -172,7 +208,8 @@ const afternoonSnacks = [
         ],
         fruitVeg: ["Mango"],
         prep: "Layer yoghurt, mango, and oats in a pot. Drizzle with honey.",
-        macros: { carbs: 30, protein: 8, fat: 5, fibre: 3 }
+        macros: { carbs: 30, protein: 8, fat: 5, fibre: 3 },
+        shopping: { fruit: ["1 mango"], grains: ["Rolled oats"], dairy: ["Natural yoghurt"], pantry: ["Raw honey"] }
     },
     {
         name: "Wholemeal Pitta with Pepper Strips",
@@ -184,7 +221,8 @@ const afternoonSnacks = [
         ],
         fruitVeg: ["Red Pepper", "Spinach"],
         prep: "Warm pitta, fill with hummus, spinach, and pepper strips.",
-        macros: { carbs: 38, protein: 8, fat: 6, fibre: 6 }
+        macros: { carbs: 38, protein: 8, fat: 6, fibre: 6 },
+        shopping: { veg: ["1 red pepper", "Fresh spinach"], grains: ["Wholemeal pitta bread"], pantry: ["Chickpeas (tinned or dried)", "Tahini"] }
     },
     {
         name: "Frozen Banana Bites with Dark Chocolate",
@@ -195,7 +233,8 @@ const afternoonSnacks = [
         ],
         fruitVeg: ["Banana"],
         prep: "Melt chocolate, dip banana slices halfway, freeze on baking paper for 20 min.",
-        macros: { carbs: 34, protein: 3, fat: 8, fibre: 4 }
+        macros: { carbs: 34, protein: 3, fat: 8, fibre: 4 },
+        shopping: { fruit: ["1 banana"], pantry: ["Dark chocolate 85%+ (no emulsifiers)", "Sea salt"] }
     },
     {
         name: "Pear & Walnut Rice Cakes",
@@ -207,7 +246,8 @@ const afternoonSnacks = [
         ],
         fruitVeg: ["Pear"],
         prep: "Spread almond butter on rice cakes, top with pear slices and walnuts.",
-        macros: { carbs: 36, protein: 5, fat: 12, fibre: 5 }
+        macros: { carbs: 36, protein: 5, fat: 12, fibre: 5 },
+        shopping: { fruit: ["1 pear"], grains: ["Brown rice cakes"], pantry: ["Natural almond butter", "Walnuts"] }
     },
     {
         name: "Celery, Raisins & Peanut Butter",
@@ -218,68 +258,141 @@ const afternoonSnacks = [
         ],
         fruitVeg: ["Celery"],
         prep: "Fill celery sticks with peanut butter, top with raisins.",
-        macros: { carbs: 20, protein: 5, fat: 9, fibre: 3 }
+        macros: { carbs: 20, protein: 5, fat: 9, fibre: 3 },
+        shopping: { veg: ["Celery"], pantry: ["Natural peanut butter", "Raisins"] }
+    },
+    {
+        name: "Rice Cakes with Banana & Honey",
+        ingredients: [
+            "2 plain brown rice cakes",
+            "1 banana, sliced",
+            "Drizzle of raw honey",
+            "Sprinkle of cinnamon"
+        ],
+        fruitVeg: ["Banana"],
+        prep: "Top rice cakes with banana slices, drizzle honey, and dust with cinnamon.",
+        macros: { carbs: 38, protein: 3, fat: 2, fibre: 3 },
+        shopping: { fruit: ["1 banana"], grains: ["Brown rice cakes"], pantry: ["Raw honey", "Ground cinnamon"] }
+    },
+    {
+        name: "Cucumber & Tzatziki with Oatcakes",
+        ingredients: [
+            "1/2 cucumber, sliced",
+            "3 tbsp homemade tzatziki (yoghurt, cucumber, garlic, dill)",
+            "2 plain oatcakes"
+        ],
+        fruitVeg: ["Cucumber"],
+        prep: "Slice cucumber, serve alongside oatcakes and fresh tzatziki.",
+        macros: { carbs: 24, protein: 6, fat: 5, fibre: 3 },
+        shopping: { veg: ["1 cucumber"], grains: ["Plain oatcakes (no preservatives)"], dairy: ["Natural yoghurt"], pantry: ["Garlic", "Fresh dill"] }
     }
 ];
 
-let lastBreakfast = null;
-let lastMorningSnack = null;
-let lastAfternoonSnack = null;
+const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const SHORT_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-function pickDifferent(arr, last) {
-    if (arr.length <= 1) return arr[0];
-    let choice;
-    do {
-        choice = arr[Math.floor(Math.random() * arr.length)];
-    } while (choice === last);
-    return choice;
+let weekPlan = [];
+let activeDay = 0;
+
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
-function renderMeal(containerId, meal) {
-    const el = document.getElementById(containerId);
-    const ingredientItems = meal.ingredients.map(ing => {
-        return `<li>${ing}</li>`;
-    }).join('');
+function pickForWeek(arr, count) {
+    // Shuffle and cycle through to fill 7 days with max variety
+    const shuffled = shuffle(arr);
+    const result = [];
+    for (let i = 0; i < count; i++) {
+        result.push(shuffled[i % shuffled.length]);
+    }
+    return result;
+}
 
+function generateWeek() {
+    const bfs = pickForWeek(breakfasts, 7);
+    const ms = pickForWeek(morningSnacks, 7);
+    const as = pickForWeek(afternoonSnacks, 7);
+
+    weekPlan = DAYS.map((day, i) => ({
+        day,
+        breakfast: bfs[i],
+        morningSnack: ms[i],
+        afternoonSnack: as[i]
+    }));
+
+    activeDay = 0;
+    renderTabs();
+    renderDay(0);
+    renderShoppingList();
+    document.getElementById('week-plan').classList.remove('hidden');
+    document.getElementById('generate-btn').textContent = 'Regenerate Whole Week';
+}
+
+function regenerateDay(index) {
+    weekPlan[index].breakfast = breakfasts[Math.floor(Math.random() * breakfasts.length)];
+    weekPlan[index].morningSnack = morningSnacks[Math.floor(Math.random() * morningSnacks.length)];
+    weekPlan[index].afternoonSnack = afternoonSnacks[Math.floor(Math.random() * afternoonSnacks.length)];
+    renderDay(index);
+    renderShoppingList();
+}
+
+function renderTabs() {
+    const tabsEl = document.getElementById('day-tabs');
+    tabsEl.innerHTML = SHORT_DAYS.map((d, i) =>
+        `<button class="day-tab ${i === activeDay ? 'active' : ''}" onclick="selectDay(${i})">
+            ${d}<span class="tab-day">${DAYS[i]}</span>
+        </button>`
+    ).join('');
+}
+
+function selectDay(index) {
+    activeDay = index;
+    renderTabs();
+    renderDay(index);
+}
+
+function renderMealCard(icon, title, meal) {
+    const ingredientItems = meal.ingredients.map(ing => `<li>${ing}</li>`).join('');
     const fruitTags = meal.fruitVeg.map(f =>
         `<span class="fruit-veg-tag">${f} - 1 of 5-a-day</span>`
     ).join(' ');
 
-    el.innerHTML = `
-        <h3>${meal.name}</h3>
-        ${fruitTags}
-        <ul class="ingredients">${ingredientItems}</ul>
-        <p class="prep-note">${meal.prep}</p>
+    return `
+        <section class="meal-card">
+            <div class="meal-header">
+                <span class="meal-icon">${icon}</span>
+                <h2>${title}</h2>
+            </div>
+            <div class="meal-content">
+                <h3>${meal.name}</h3>
+                ${fruitTags}
+                <ul class="ingredients">${ingredientItems}</ul>
+                <p class="prep-note">${meal.prep}</p>
+            </div>
+        </section>
     `;
 }
 
-function generatePlan() {
-    const breakfast = pickDifferent(breakfasts, lastBreakfast);
-    const mSnack = pickDifferent(morningSnacks, lastMorningSnack);
-    const aSnack = pickDifferent(afternoonSnacks, lastAfternoonSnack);
+function renderDay(index) {
+    const plan = weekPlan[index];
+    const contentEl = document.getElementById('day-content');
 
-    lastBreakfast = breakfast;
-    lastMorningSnack = mSnack;
-    lastAfternoonSnack = aSnack;
-
-    renderMeal('breakfast-content', breakfast);
-    renderMeal('morning-snack-content', mSnack);
-    renderMeal('afternoon-snack-content', aSnack);
-
-    // 5-a-day tracker
-    const allFV = [...breakfast.fruitVeg, ...mSnack.fruitVeg, ...aSnack.fruitVeg];
+    // Gather 5-a-day
+    const allFV = [...plan.breakfast.fruitVeg, ...plan.morningSnack.fruitVeg, ...plan.afternoonSnack.fruitVeg];
     const uniqueFV = [...new Set(allFV)];
-    const fadEl = document.getElementById('five-a-day');
-    fadEl.innerHTML = uniqueFV.map(f => `<span class="fad-item">${f}</span>`).join('');
-    const countEl = document.getElementById('five-a-day-count');
     const count = uniqueFV.length;
-    countEl.innerHTML = `<strong>${count}</strong> of your 5-a-day covered from breakfast & snacks alone!${count >= 5 ? ' All 5 reached!' : ` Add ${5 - count} more with lunch & dinner.`}`;
 
     // Macros
-    const totalCarbs = breakfast.macros.carbs + mSnack.macros.carbs + aSnack.macros.carbs;
-    const totalProtein = breakfast.macros.protein + mSnack.macros.protein + aSnack.macros.protein;
-    const totalFat = breakfast.macros.fat + mSnack.macros.fat + aSnack.macros.fat;
-    const totalFibre = breakfast.macros.fibre + mSnack.macros.fibre + aSnack.macros.fibre;
+    const meals = [plan.breakfast, plan.morningSnack, plan.afternoonSnack];
+    const totalCarbs = meals.reduce((s, m) => s + m.macros.carbs, 0);
+    const totalProtein = meals.reduce((s, m) => s + m.macros.protein, 0);
+    const totalFat = meals.reduce((s, m) => s + m.macros.fat, 0);
+    const totalFibre = meals.reduce((s, m) => s + m.macros.fibre, 0);
     const total = totalCarbs + totalProtein + totalFat + totalFibre;
 
     const carbPct = Math.round((totalCarbs / total) * 100);
@@ -287,15 +400,100 @@ function generatePlan() {
     const fatPct = Math.round((totalFat / total) * 100);
     const fibrePct = Math.round((totalFibre / total) * 100);
 
-    document.getElementById('carb-bar').style.width = carbPct + '%';
-    document.getElementById('protein-bar').style.width = proteinPct + '%';
-    document.getElementById('fat-bar').style.width = fatPct + '%';
-    document.getElementById('fibre-bar').style.width = fibrePct + '%';
+    contentEl.innerHTML = `
+        <button class="refresh-day-btn" onclick="regenerateDay(${index})">&#8635; Shuffle ${plan.day}'s meals</button>
 
-    document.getElementById('carb-pct').textContent = carbPct + '%';
-    document.getElementById('protein-pct').textContent = proteinPct + '%';
-    document.getElementById('fat-pct').textContent = fatPct + '%';
-    document.getElementById('fibre-pct').textContent = fibrePct + '%';
+        ${renderMealCard('&#9728;', 'Breakfast', plan.breakfast)}
+        ${renderMealCard('&#127822;', 'Morning Snack', plan.morningSnack)}
+        ${renderMealCard('&#127827;', 'Afternoon Snack', plan.afternoonSnack)}
 
-    document.getElementById('plan').classList.remove('hidden');
+        <section class="five-a-day-tracker">
+            <h2>${plan.day}'s 5-a-Day</h2>
+            <div class="five-a-day-items">
+                ${uniqueFV.map(f => `<span class="fad-item">${f}</span>`).join('')}
+            </div>
+            <p class="count-label">
+                <strong>${count}</strong> of your 5-a-day from breakfast & snacks!${count >= 5 ? ' All 5 reached!' : ` Add ${5 - count} more with lunch & dinner.`}
+            </p>
+        </section>
+
+        <section class="nutrition-summary">
+            <h2>Nutrition Balance</h2>
+            <div class="macro-bars">
+                <div class="macro-row">
+                    <span class="macro-label">Carbs (energy)</span>
+                    <div class="bar-track"><div class="bar carb-bar" style="width:${carbPct}%"></div></div>
+                    <span class="macro-pct">${carbPct}%</span>
+                </div>
+                <div class="macro-row">
+                    <span class="macro-label">Protein</span>
+                    <div class="bar-track"><div class="bar protein-bar" style="width:${proteinPct}%"></div></div>
+                    <span class="macro-pct">${proteinPct}%</span>
+                </div>
+                <div class="macro-row">
+                    <span class="macro-label">Healthy Fats</span>
+                    <div class="bar-track"><div class="bar fat-bar" style="width:${fatPct}%"></div></div>
+                    <span class="macro-pct">${fatPct}%</span>
+                </div>
+                <div class="macro-row">
+                    <span class="macro-label">Fibre</span>
+                    <div class="bar-track"><div class="bar fibre-bar" style="width:${fibrePct}%"></div></div>
+                    <span class="macro-pct">${fibrePct}%</span>
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+function renderShoppingList() {
+    const categories = { fruit: {}, veg: {}, grains: {}, dairy: {}, pantry: {} };
+    const categoryLabels = {
+        fruit: "Fruit",
+        veg: "Vegetables",
+        grains: "Grains & Bread",
+        dairy: "Dairy & Eggs",
+        pantry: "Pantry Staples"
+    };
+
+    // Collect all shopping items across the week
+    weekPlan.forEach(day => {
+        [day.breakfast, day.morningSnack, day.afternoonSnack].forEach(meal => {
+            if (!meal.shopping) return;
+            Object.keys(meal.shopping).forEach(cat => {
+                if (!categories[cat]) categories[cat] = {};
+                meal.shopping[cat].forEach(item => {
+                    // Aggregate counts
+                    const key = item.replace(/^\d+\s*/, '').toLowerCase();
+                    if (!categories[cat][key]) {
+                        categories[cat][key] = { display: item, count: 1 };
+                    } else {
+                        categories[cat][key].count++;
+                    }
+                });
+            });
+        });
+    });
+
+    const listEl = document.getElementById('shopping-list');
+    let html = '';
+
+    Object.keys(categories).forEach(cat => {
+        const items = Object.values(categories[cat]);
+        if (items.length === 0) return;
+        html += `<div class="shopping-category"><h3>${categoryLabels[cat]}</h3><ul>`;
+        items.forEach(item => {
+            const qty = item.count > 1 ? ` (x${item.count} across the week)` : '';
+            html += `<li>${item.display}${qty}</li>`;
+        });
+        html += `</ul></div>`;
+    });
+
+    listEl.innerHTML = html;
+}
+
+function toggleShopping() {
+    const list = document.getElementById('shopping-list');
+    const arrow = document.getElementById('shopping-toggle');
+    list.classList.toggle('open');
+    arrow.classList.toggle('open');
 }

@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
 }
 
@@ -61,6 +61,72 @@ header h1 {
     display: none;
 }
 
+/* Day tabs */
+.day-tabs {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.3rem;
+}
+
+.day-tab {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.3rem;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #777;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.day-tab:hover {
+    border-color: #81c784;
+    color: #2e7d32;
+}
+
+.day-tab.active {
+    background: #2e7d32;
+    border-color: #2e7d32;
+    color: #fff;
+}
+
+.day-tab .tab-day {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Refresh button for individual day */
+.refresh-day-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #2e7d32;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.refresh-day-btn:hover {
+    background: #c8e6c9;
+}
+
+/* Meal cards */
 .meal-card {
     background: #fff;
     border-radius: 16px;
@@ -232,6 +298,81 @@ header h1 {
     flex-shrink: 0;
 }
 
+/* Shopping list */
+.shopping-list-section {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.shopping-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.shopping-header h2 {
+    font-size: 1.15rem;
+    color: #2e7d32;
+}
+
+.toggle-arrow {
+    font-size: 1rem;
+    color: #999;
+    transition: transform 0.2s;
+}
+
+.toggle-arrow.open {
+    transform: rotate(180deg);
+}
+
+.shopping-list {
+    padding: 0 1.5rem 1.5rem;
+    display: none;
+}
+
+.shopping-list.open {
+    display: block;
+}
+
+.shopping-category {
+    margin-bottom: 1rem;
+}
+
+.shopping-category h3 {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #eee;
+}
+
+.shopping-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shopping-category li {
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.shopping-category li::before {
+    content: "\25A1";
+    position: absolute;
+    left: 0;
+    color: #81c784;
+    font-size: 0.8rem;
+}
+
 /* Badges */
 .badge-row {
     display: flex;
@@ -267,4 +408,5 @@ header h1 {
     header h1 { font-size: 1.5rem; }
     .meal-card { padding: 1.1rem; }
     .macro-label { width: 80px; font-size: 0.8rem; }
+    .day-tab { font-size: 0.7rem; padding: 0.5rem 0.2rem; }
 }

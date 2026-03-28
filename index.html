@@ -3,73 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Breakfast & Snack Planner</title>
+    <title>Weekly Breakfast & Snack Planner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Breakfast & Snack Planner</h1>
+            <h1>Weekly Breakfast & Snack Planner</h1>
             <p class="subtitle">Balanced, preservative-free meals with your 5-a-day</p>
         </header>
 
-        <button id="generate-btn" onclick="generatePlan()">Generate Today's Plan</button>
+        <button id="generate-btn" onclick="generateWeek()">Generate Weekly Plan</button>
 
-        <div id="plan" class="hidden">
-            <section class="meal-card breakfast">
-                <div class="meal-header">
-                    <span class="meal-icon">&#9728;</span>
-                    <h2>Breakfast</h2>
+        <div id="week-plan" class="hidden">
+            <nav class="day-tabs" id="day-tabs"></nav>
+
+            <div id="day-content"></div>
+
+            <section class="shopping-list-section" id="shopping-section">
+                <div class="shopping-header" onclick="toggleShopping()">
+                    <h2>Weekly Shopping List</h2>
+                    <span id="shopping-toggle" class="toggle-arrow">&#9660;</span>
                 </div>
-                <div id="breakfast-content" class="meal-content"></div>
-            </section>
-
-            <section class="meal-card morning-snack">
-                <div class="meal-header">
-                    <span class="meal-icon">&#127822;</span>
-                    <h2>Morning Snack</h2>
-                </div>
-                <div id="morning-snack-content" class="meal-content"></div>
-            </section>
-
-            <section class="meal-card afternoon-snack">
-                <div class="meal-header">
-                    <span class="meal-icon">&#127827;</span>
-                    <h2>Afternoon Snack</h2>
-                </div>
-                <div id="afternoon-snack-content" class="meal-content"></div>
-            </section>
-
-            <section class="five-a-day-tracker">
-                <h2>Your 5-a-Day Tracker</h2>
-                <div id="five-a-day" class="five-a-day-items"></div>
-                <p id="five-a-day-count" class="count-label"></p>
-            </section>
-
-            <section class="nutrition-summary">
-                <h2>Nutrition Balance</h2>
-                <div class="macro-bars">
-                    <div class="macro-row">
-                        <span class="macro-label">Carbs (energy)</span>
-                        <div class="bar-track"><div id="carb-bar" class="bar carb-bar"></div></div>
-                        <span id="carb-pct" class="macro-pct"></span>
-                    </div>
-                    <div class="macro-row">
-                        <span class="macro-label">Protein</span>
-                        <div class="bar-track"><div id="protein-bar" class="bar protein-bar"></div></div>
-                        <span id="protein-pct" class="macro-pct"></span>
-                    </div>
-                    <div class="macro-row">
-                        <span class="macro-label">Healthy Fats</span>
-                        <div class="bar-track"><div id="fat-bar" class="bar fat-bar"></div></div>
-                        <span id="fat-pct" class="macro-pct"></span>
-                    </div>
-                    <div class="macro-row">
-                        <span class="macro-label">Fibre</span>
-                        <div class="bar-track"><div id="fibre-bar" class="bar fibre-bar"></div></div>
-                        <span id="fibre-pct" class="macro-pct"></span>
-                    </div>
-                </div>
+                <div id="shopping-list" class="shopping-list"></div>
             </section>
 
             <div class="badge-row">
