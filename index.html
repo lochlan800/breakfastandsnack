@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Breakfast & Snack Planner</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <div class="container">
@@ -13,7 +13,7 @@
             <p class="subtitle">Balanced, preservative-free meals with your 5-a-day</p>
         </header>
 
-        <button id="generate-btn" onclick="generateWeek()">Generate Weekly Plan</button>
+        <button id="generate-btn">Generate Weekly Plan</button>
 
         <div id="week-plan" class="hidden">
             <nav class="day-tabs" id="day-tabs"></nav>
@@ -21,7 +21,7 @@
             <div id="day-content"></div>
 
             <section class="shopping-list-section" id="shopping-section">
-                <div class="shopping-header" onclick="toggleShopping()">
+                <div class="shopping-header" id="shopping-header">
                     <h2>Weekly Shopping List</h2>
                     <span id="shopping-toggle" class="toggle-arrow">&#9660;</span>
                 </div>
@@ -36,6 +36,6 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=3"></script>
 </body>
 </html>

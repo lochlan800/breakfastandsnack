@@ -288,48 +288,52 @@ const afternoonSnacks = [
     }
 ];
 
-const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-const SHORT_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+var DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+var SHORT_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-let weekPlan = [];
-let activeDay = 0;
+var weekPlan = [];
+var activeDay = 0;
 
 function shuffle(arr) {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
     return a;
 }
 
 function pickForWeek(arr, count) {
-    // Shuffle and cycle through to fill 7 days with max variety
-    const shuffled = shuffle(arr);
-    const result = [];
-    for (let i = 0; i < count; i++) {
+    var shuffled = shuffle(arr);
+    var result = [];
+    for (var i = 0; i < count; i++) {
         result.push(shuffled[i % shuffled.length]);
     }
     return result;
 }
 
 function generateWeek() {
-    const bfPicks = pickForWeek(breakfasts, 7);
-    const msPicks = pickForWeek(morningSnacks, 7);
-    const asPicks = pickForWeek(afternoonSnacks, 7);
+    var bfPicks = pickForWeek(breakfasts, 7);
+    var msPicks = pickForWeek(morningSnacks, 7);
+    var asPicks = pickForWeek(afternoonSnacks, 7);
 
-    weekPlan = DAYS.map((day, i) => ({
-        day,
-        breakfast: bfPicks[i],
-        morningSnack: msPicks[i],
-        afternoonSnack: asPicks[i]
-    }));
+    weekPlan = [];
+    for (var i = 0; i < 7; i++) {
+        weekPlan.push({
+            day: DAYS[i],
+            breakfast: bfPicks[i],
+            morningSnack: msPicks[i],
+            afternoonSnack: asPicks[i]
+        });
+    }
 
     activeDay = 0;
     renderTabs();
     renderDay(0);
     renderShoppingList();
-    document.getElementById('week-plan').classList.remove('hidden');
+    document.getElementById('week-plan').className = '';
     document.getElementById('generate-btn').textContent = 'Regenerate Whole Week';
 }
 
@@ -342,12 +346,14 @@ function regenerateDay(index) {
 }
 
 function renderTabs() {
-    const tabsEl = document.getElementById('day-tabs');
-    tabsEl.innerHTML = SHORT_DAYS.map((d, i) =>
-        `<button class="day-tab ${i === activeDay ? 'active' : ''}" onclick="selectDay(${i})">
-            ${d}<span class="tab-day">${DAYS[i]}</span>
-        </button>`
-    ).join('');
+    var tabsEl = document.getElementById('day-tabs');
+    var html = '';
+    for (var i = 0; i < SHORT_DAYS.length; i++) {
+        var cls = (i === activeDay) ? 'day-tab active' : 'day-tab';
+        html += '<button class="' + cls + '" data-day-index="' + i + '">' +
+            SHORT_DAYS[i] + '<span class="tab-day">' + DAYS[i] + '</span></button>';
+    }
+    tabsEl.innerHTML = html;
 }
 
 function selectDay(index) {
@@ -357,97 +363,90 @@ function selectDay(index) {
 }
 
 function renderMealCard(icon, title, meal) {
-    const ingredientItems = meal.ingredients.map(ing => `<li>${ing}</li>`).join('');
-    const fruitTags = meal.fruitVeg.map(f =>
-        `<span class="fruit-veg-tag">${f} - 1 of 5-a-day</span>`
-    ).join(' ');
+    var ingredientItems = '';
+    for (var i = 0; i < meal.ingredients.length; i++) {
+        ingredientItems += '<li>' + meal.ingredients[i] + '</li>';
+    }
+    var fruitTags = '';
+    for (var j = 0; j < meal.fruitVeg.length; j++) {
+        fruitTags += '<span class="fruit-veg-tag">' + meal.fruitVeg[j] + ' - 1 of 5-a-day</span> ';
+    }
 
-    return `
-        <section class="meal-card">
-            <div class="meal-header">
-                <span class="meal-icon">${icon}</span>
-                <h2>${title}</h2>
-            </div>
-            <div class="meal-content">
-                <h3>${meal.name}</h3>
-                ${fruitTags}
-                <ul class="ingredients">${ingredientItems}</ul>
-                <p class="prep-note">${meal.prep}</p>
-            </div>
-        </section>
-    `;
+    return '<section class="meal-card">' +
+        '<div class="meal-header">' +
+        '<span class="meal-icon">' + icon + '</span>' +
+        '<h2>' + title + '</h2>' +
+        '</div>' +
+        '<div class="meal-content">' +
+        '<h3>' + meal.name + '</h3>' +
+        fruitTags +
+        '<ul class="ingredients">' + ingredientItems + '</ul>' +
+        '<p class="prep-note">' + meal.prep + '</p>' +
+        '</div></section>';
 }
 
 function renderDay(index) {
-    const plan = weekPlan[index];
-    const contentEl = document.getElementById('day-content');
+    var plan = weekPlan[index];
+    var contentEl = document.getElementById('day-content');
 
-    // Gather 5-a-day
-    const allFV = [...plan.breakfast.fruitVeg, ...plan.morningSnack.fruitVeg, ...plan.afternoonSnack.fruitVeg];
-    const uniqueFV = [...new Set(allFV)];
-    const count = uniqueFV.length;
+    var allFV = plan.breakfast.fruitVeg.concat(plan.morningSnack.fruitVeg, plan.afternoonSnack.fruitVeg);
+    var seen = {};
+    var uniqueFV = [];
+    for (var i = 0; i < allFV.length; i++) {
+        if (!seen[allFV[i]]) {
+            seen[allFV[i]] = true;
+            uniqueFV.push(allFV[i]);
+        }
+    }
+    var count = uniqueFV.length;
 
-    // Macros
-    const meals = [plan.breakfast, plan.morningSnack, plan.afternoonSnack];
-    const totalCarbs = meals.reduce((s, m) => s + m.macros.carbs, 0);
-    const totalProtein = meals.reduce((s, m) => s + m.macros.protein, 0);
-    const totalFat = meals.reduce((s, m) => s + m.macros.fat, 0);
-    const totalFibre = meals.reduce((s, m) => s + m.macros.fibre, 0);
-    const total = totalCarbs + totalProtein + totalFat + totalFibre;
+    var meals = [plan.breakfast, plan.morningSnack, plan.afternoonSnack];
+    var totalCarbs = 0, totalProtein = 0, totalFat = 0, totalFibre = 0;
+    for (var m = 0; m < meals.length; m++) {
+        totalCarbs += meals[m].macros.carbs;
+        totalProtein += meals[m].macros.protein;
+        totalFat += meals[m].macros.fat;
+        totalFibre += meals[m].macros.fibre;
+    }
+    var total = totalCarbs + totalProtein + totalFat + totalFibre;
 
-    const carbPct = Math.round((totalCarbs / total) * 100);
-    const proteinPct = Math.round((totalProtein / total) * 100);
-    const fatPct = Math.round((totalFat / total) * 100);
-    const fibrePct = Math.round((totalFibre / total) * 100);
+    var carbPct = Math.round((totalCarbs / total) * 100);
+    var proteinPct = Math.round((totalProtein / total) * 100);
+    var fatPct = Math.round((totalFat / total) * 100);
+    var fibrePct = Math.round((totalFibre / total) * 100);
 
-    contentEl.innerHTML = `
-        <button class="refresh-day-btn" onclick="regenerateDay(${index})">&#8635; Shuffle ${plan.day}'s meals</button>
+    var fvItems = '';
+    for (var f = 0; f < uniqueFV.length; f++) {
+        fvItems += '<span class="fad-item">' + uniqueFV[f] + '</span>';
+    }
 
-        ${renderMealCard('&#9728;', 'Breakfast', plan.breakfast)}
-        ${renderMealCard('&#127822;', 'Morning Snack', plan.morningSnack)}
-        ${renderMealCard('&#127827;', 'Afternoon Snack', plan.afternoonSnack)}
+    var countMsg = count >= 5
+        ? ' All 5 reached!'
+        : ' Add ' + (5 - count) + ' more with lunch &amp; dinner.';
 
-        <section class="five-a-day-tracker">
-            <h2>${plan.day}'s 5-a-Day</h2>
-            <div class="five-a-day-items">
-                ${uniqueFV.map(f => `<span class="fad-item">${f}</span>`).join('')}
-            </div>
-            <p class="count-label">
-                <strong>${count}</strong> of your 5-a-day from breakfast & snacks!${count >= 5 ? ' All 5 reached!' : ` Add ${5 - count} more with lunch & dinner.`}
-            </p>
-        </section>
-
-        <section class="nutrition-summary">
-            <h2>Nutrition Balance</h2>
-            <div class="macro-bars">
-                <div class="macro-row">
-                    <span class="macro-label">Carbs (energy)</span>
-                    <div class="bar-track"><div class="bar carb-bar" style="width:${carbPct}%"></div></div>
-                    <span class="macro-pct">${carbPct}%</span>
-                </div>
-                <div class="macro-row">
-                    <span class="macro-label">Protein</span>
-                    <div class="bar-track"><div class="bar protein-bar" style="width:${proteinPct}%"></div></div>
-                    <span class="macro-pct">${proteinPct}%</span>
-                </div>
-                <div class="macro-row">
-                    <span class="macro-label">Healthy Fats</span>
-                    <div class="bar-track"><div class="bar fat-bar" style="width:${fatPct}%"></div></div>
-                    <span class="macro-pct">${fatPct}%</span>
-                </div>
-                <div class="macro-row">
-                    <span class="macro-label">Fibre</span>
-                    <div class="bar-track"><div class="bar fibre-bar" style="width:${fibrePct}%"></div></div>
-                    <span class="macro-pct">${fibrePct}%</span>
-                </div>
-            </div>
-        </section>
-    `;
+    contentEl.innerHTML =
+        '<button class="refresh-day-btn" data-shuffle-day="' + index + '">&#8635; Shuffle ' + plan.day + '\'s meals</button>' +
+        renderMealCard('&#9728;', 'Breakfast', plan.breakfast) +
+        renderMealCard('&#127822;', 'Morning Snack', plan.morningSnack) +
+        renderMealCard('&#127827;', 'Afternoon Snack', plan.afternoonSnack) +
+        '<section class="five-a-day-tracker">' +
+        '<h2>' + plan.day + '\'s 5-a-Day</h2>' +
+        '<div class="five-a-day-items">' + fvItems + '</div>' +
+        '<p class="count-label"><strong>' + count + '</strong> of your 5-a-day from breakfast &amp; snacks!' + countMsg + '</p>' +
+        '</section>' +
+        '<section class="nutrition-summary">' +
+        '<h2>Nutrition Balance</h2>' +
+        '<div class="macro-bars">' +
+        '<div class="macro-row"><span class="macro-label">Carbs (energy)</span><div class="bar-track"><div class="bar carb-bar" style="width:' + carbPct + '%"></div></div><span class="macro-pct">' + carbPct + '%</span></div>' +
+        '<div class="macro-row"><span class="macro-label">Protein</span><div class="bar-track"><div class="bar protein-bar" style="width:' + proteinPct + '%"></div></div><span class="macro-pct">' + proteinPct + '%</span></div>' +
+        '<div class="macro-row"><span class="macro-label">Healthy Fats</span><div class="bar-track"><div class="bar fat-bar" style="width:' + fatPct + '%"></div></div><span class="macro-pct">' + fatPct + '%</span></div>' +
+        '<div class="macro-row"><span class="macro-label">Fibre</span><div class="bar-track"><div class="bar fibre-bar" style="width:' + fibrePct + '%"></div></div><span class="macro-pct">' + fibrePct + '%</span></div>' +
+        '</div></section>';
 }
 
 function renderShoppingList() {
-    const categories = { fruit: {}, veg: {}, grains: {}, dairy: {}, pantry: {} };
-    const categoryLabels = {
+    var categories = { fruit: {}, veg: {}, grains: {}, dairy: {}, pantry: {} };
+    var categoryLabels = {
         fruit: "Fruit",
         veg: "Vegetables",
         grains: "Grains & Bread",
@@ -455,45 +454,99 @@ function renderShoppingList() {
         pantry: "Pantry Staples"
     };
 
-    // Collect all shopping items across the week
-    weekPlan.forEach(day => {
-        [day.breakfast, day.morningSnack, day.afternoonSnack].forEach(meal => {
-            if (!meal.shopping) return;
-            Object.keys(meal.shopping).forEach(cat => {
+    for (var d = 0; d < weekPlan.length; d++) {
+        var dayMeals = [weekPlan[d].breakfast, weekPlan[d].morningSnack, weekPlan[d].afternoonSnack];
+        for (var m = 0; m < dayMeals.length; m++) {
+            var meal = dayMeals[m];
+            if (!meal.shopping) continue;
+            var cats = Object.keys(meal.shopping);
+            for (var c = 0; c < cats.length; c++) {
+                var cat = cats[c];
                 if (!categories[cat]) categories[cat] = {};
-                meal.shopping[cat].forEach(item => {
-                    // Aggregate counts
-                    const key = item.replace(/^\d+\s*/, '').toLowerCase();
+                var items = meal.shopping[cat];
+                for (var it = 0; it < items.length; it++) {
+                    var item = items[it];
+                    var key = item.replace(/^\d+\s*/, '').toLowerCase();
                     if (!categories[cat][key]) {
                         categories[cat][key] = { display: item, count: 1 };
                     } else {
                         categories[cat][key].count++;
                     }
-                });
-            });
-        });
-    });
+                }
+            }
+        }
+    }
 
-    const listEl = document.getElementById('shopping-list');
-    let html = '';
+    var listEl = document.getElementById('shopping-list');
+    var html = '';
+    var catKeys = Object.keys(categories);
 
-    Object.keys(categories).forEach(cat => {
-        const items = Object.values(categories[cat]);
-        if (items.length === 0) return;
-        html += `<div class="shopping-category"><h3>${categoryLabels[cat]}</h3><ul>`;
-        items.forEach(item => {
-            const qty = item.count > 1 ? ` (x${item.count} across the week)` : '';
-            html += `<li>${item.display}${qty}</li>`;
-        });
-        html += `</ul></div>`;
-    });
+    for (var k = 0; k < catKeys.length; k++) {
+        var catKey = catKeys[k];
+        var catItems = Object.values(categories[catKey]);
+        if (catItems.length === 0) continue;
+        html += '<div class="shopping-category"><h3>' + categoryLabels[catKey] + '</h3><ul>';
+        for (var q = 0; q < catItems.length; q++) {
+            var qty = catItems[q].count > 1 ? ' (x' + catItems[q].count + ' across the week)' : '';
+            html += '<li>' + catItems[q].display + qty + '</li>';
+        }
+        html += '</ul></div>';
+    }
 
     listEl.innerHTML = html;
 }
 
 function toggleShopping() {
-    const list = document.getElementById('shopping-list');
-    const arrow = document.getElementById('shopping-toggle');
-    list.classList.toggle('open');
-    arrow.classList.toggle('open');
+    var list = document.getElementById('shopping-list');
+    var arrow = document.getElementById('shopping-toggle');
+    if (list.className.indexOf('open') >= 0) {
+        list.className = 'shopping-list';
+        arrow.className = 'toggle-arrow';
+    } else {
+        list.className = 'shopping-list open';
+        arrow.className = 'toggle-arrow open';
+    }
 }
+
+// Attach all event listeners once the DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Generate / regenerate week button
+    document.getElementById('generate-btn').addEventListener('click', function() {
+        generateWeek();
+    });
+
+    // Shopping list toggle
+    document.getElementById('shopping-header').addEventListener('click', function() {
+        toggleShopping();
+    });
+
+    // Event delegation for dynamically created buttons (day tabs + shuffle)
+    document.addEventListener('click', function(e) {
+        var target = e.target;
+
+        // Check for day tab clicks (might click the span inside the button)
+        var tabBtn = target.closest ? target.closest('[data-day-index]') : null;
+        if (!tabBtn && target.getAttribute && target.getAttribute('data-day-index') !== null) {
+            tabBtn = target;
+        }
+        if (!tabBtn && target.parentElement && target.parentElement.getAttribute && target.parentElement.getAttribute('data-day-index') !== null) {
+            tabBtn = target.parentElement;
+        }
+        if (tabBtn) {
+            var dayIndex = parseInt(tabBtn.getAttribute('data-day-index'), 10);
+            selectDay(dayIndex);
+            return;
+        }
+
+        // Check for shuffle day button
+        var shuffleBtn = target.closest ? target.closest('[data-shuffle-day]') : null;
+        if (!shuffleBtn && target.getAttribute && target.getAttribute('data-shuffle-day') !== null) {
+            shuffleBtn = target;
+        }
+        if (shuffleBtn) {
+            var shuffleIndex = parseInt(shuffleBtn.getAttribute('data-shuffle-day'), 10);
+            regenerateDay(shuffleIndex);
+            return;
+        }
+    });
+});
