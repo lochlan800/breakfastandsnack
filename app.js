@@ -509,6 +509,21 @@ function renderShoppingList() {
     }
 
     listEl.innerHTML = html;
+    updateShoppingProgress();
+}
+
+function updateShoppingProgress() {
+    var all = document.querySelectorAll('#shopping-list input[type="checkbox"]');
+    var checked = document.querySelectorAll('#shopping-list input[type="checkbox"]:checked');
+    var el = document.getElementById('shopping-progress');
+    if (all.length === 0) {
+        el.textContent = '';
+        return;
+    }
+    el.textContent = checked.length + '/' + all.length;
+    if (checked.length === all.length) {
+        el.textContent = checked.length + '/' + all.length + ' - All done!';
+    }
 }
 
 function toggleShopping() {
@@ -535,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleShopping();
     });
 
-    // Shopping list checkbox toggling
+    // Shopping list checkbox toggling + progress counter
     document.getElementById('shopping-list').addEventListener('change', function(e) {
         if (e.target && e.target.type === 'checkbox') {
             var label = e.target.parentElement;
@@ -544,6 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 label.className = 'shop-item';
             }
+            updateShoppingProgress();
         }
     });
 

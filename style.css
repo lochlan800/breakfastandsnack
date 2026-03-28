@@ -321,6 +321,16 @@ header h1 {
     color: #2e7d32;
 }
 
+.shopping-progress {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: #43a047;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+}
+
 .toggle-arrow {
     font-size: 1rem;
     color: #999;
