@@ -503,7 +503,7 @@ function renderShoppingList() {
         html += '<div class="shopping-category"><h3>' + categoryLabels[catKey] + '</h3><ul>';
         for (var q = 0; q < catItems.length; q++) {
             var qty = catItems[q].count > 1 ? ' (x' + catItems[q].count + ' across the week)' : '';
-            html += '<li>' + catItems[q].display + qty + '</li>';
+            html += '<li><label class="shop-item"><input type="checkbox"><span>' + catItems[q].display + qty + '</span></label></li>';
         }
         html += '</ul></div>';
     }
@@ -533,6 +533,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Shopping list toggle
     document.getElementById('shopping-header').addEventListener('click', function() {
         toggleShopping();
+    });
+
+    // Shopping list checkbox toggling
+    document.getElementById('shopping-list').addEventListener('change', function(e) {
+        if (e.target && e.target.type === 'checkbox') {
+            var label = e.target.parentElement;
+            if (e.target.checked) {
+                label.className = 'shop-item checked';
+            } else {
+                label.className = 'shop-item';
+            }
+        }
     });
 
     // Event delegation for dynamically created buttons (day tabs + shuffle)
