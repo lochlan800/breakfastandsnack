@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9 0%, #fff8e1 50%, #fce4ec 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: #333;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #2e7d32;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1rem;
+}
+
+#generate-btn {
+    display: block;
+    margin: 0 auto 2rem;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+}
+
+#generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 160, 71, 0.4);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+.meal-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.meal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.meal-icon {
+    font-size: 1.6rem;
+}
+
+.meal-header h2 {
+    font-size: 1.2rem;
+    color: #2e7d32;
+}
+
+.meal-content h3 {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.meal-content .ingredients {
+    list-style: none;
+    padding: 0;
+}
+
+.meal-content .ingredients li {
+    padding: 0.25rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.meal-content .ingredients li::before {
+    content: "\25CF";
+    position: absolute;
+    left: 0;
+    color: #81c784;
+    font-size: 0.6rem;
+    top: 0.45rem;
+}
+
+.meal-content .fruit-veg-tag {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
+.meal-content .prep-note {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* 5-a-day tracker */
+.five-a-day-tracker {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.five-a-day-tracker h2 {
+    font-size: 1.15rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+.five-a-day-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.7rem;
+}
+
+.five-a-day-items .fad-item {
+    background: #c8e6c9;
+    color: #1b5e20;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.count-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.count-label strong {
+    color: #2e7d32;
+}
+
+/* Nutrition bars */
+.nutrition-summary {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.nutrition-summary h2 {
+    font-size: 1.15rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+.macro-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.macro-label {
+    width: 110px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.bar-track {
+    flex: 1;
+    height: 14px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+.carb-bar { background: linear-gradient(90deg, #ffb74d, #ffa726); }
+.protein-bar { background: linear-gradient(90deg, #ef5350, #e57373); }
+.fat-bar { background: linear-gradient(90deg, #42a5f5, #64b5f6); }
+.fibre-bar { background: linear-gradient(90deg, #66bb6a, #81c784); }
+
+.macro-pct {
+    width: 40px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Badges */
+.badge-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+}
+
+.badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.no-preservatives {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.no-emulsifiers {
+    background: #fce4ec;
+    color: #c62828;
+}
+
+.whole-foods {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+@media (max-width: 500px) {
+    header h1 { font-size: 1.5rem; }
+    .meal-card { padding: 1.1rem; }
+    .macro-label { width: 80px; font-size: 0.8rem; }
+}
