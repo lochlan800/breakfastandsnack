@@ -314,15 +314,15 @@ function pickForWeek(arr, count) {
 }
 
 function generateWeek() {
-    const bfs = pickForWeek(breakfasts, 7);
-    const ms = pickForWeek(morningSnacks, 7);
-    const as = pickForWeek(afternoonSnacks, 7);
+    const bfPicks = pickForWeek(breakfasts, 7);
+    const msPicks = pickForWeek(morningSnacks, 7);
+    const asPicks = pickForWeek(afternoonSnacks, 7);
 
     weekPlan = DAYS.map((day, i) => ({
         day,
-        breakfast: bfs[i],
-        morningSnack: ms[i],
-        afternoonSnack: as[i]
+        breakfast: bfPicks[i],
+        morningSnack: msPicks[i],
+        afternoonSnack: asPicks[i]
     }));
 
     activeDay = 0;
