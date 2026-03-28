@@ -222,17 +222,17 @@ const afternoonSnacks = [
     }
 ];
 
-function pick(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
+let lastBreakfast = null;
+let lastMorningSnack = null;
+let lastAfternoonSnack = null;
 
-function pickUnique(arr, exclude) {
-    const filtered = arr.filter(item => {
-        const overlap = item.fruitVeg.some(f => exclude.includes(f));
-        return !overlap || filtered.length === 0;
-    });
-    const pool = filtered.length > 0 ? filtered : arr;
-    return pool[Math.floor(Math.random() * pool.length)];
+function pickDifferent(arr, last) {
+    if (arr.length <= 1) return arr[0];
+    let choice;
+    do {
+        choice = arr[Math.floor(Math.random() * arr.length)];
+    } while (choice === last);
+    return choice;
 }
 
 function renderMeal(containerId, meal) {
@@ -254,13 +254,13 @@ function renderMeal(containerId, meal) {
 }
 
 function generatePlan() {
-    const breakfast = pick(breakfasts);
+    const breakfast = pickDifferent(breakfasts, lastBreakfast);
+    const mSnack = pickDifferent(morningSnacks, lastMorningSnack);
+    const aSnack = pickDifferent(afternoonSnacks, lastAfternoonSnack);
 
-    // Try to get variety in fruit/veg across meals
-    const usedFV = [...breakfast.fruitVeg];
-    const mSnack = pickUnique(morningSnacks, usedFV);
-    usedFV.push(...mSnack.fruitVeg);
-    const aSnack = pickUnique(afternoonSnacks, usedFV);
+    lastBreakfast = breakfast;
+    lastMorningSnack = mSnack;
+    lastAfternoonSnack = aSnack;
 
     renderMeal('breakfast-content', breakfast);
     renderMeal('morning-snack-content', mSnack);
