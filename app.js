@@ -19,7 +19,7 @@ const breakfasts = [
         fruitVeg: ["Banana", "Blueberries", "Strawberries", "Spinach"],
         prep: "Cook oats with milk, wilt spinach into the oats, top with banana, blueberries, strawberries, pumpkin seeds, and honey.",
         macros: { carbs: 64, protein: 16, fat: 14, fibre: 12, iron: 7.5 },
-        shopping: { fruit: ["1 banana", "Fresh blueberries", "Fresh strawberries"], veg: ["Fresh spinach"], grains: ["Rolled oats"], dairy: ["Whole milk or oat milk"], pantry: ["Pumpkin seeds", "Raw honey"] }
+        shopping: { fruit: ["1 banana", "80g blueberries", "80g strawberries"], veg: ["60g spinach"], grains: ["80g rolled oats"], dairy: ["200ml whole milk"], pantry: ["15g pumpkin seeds", "10g raw honey"] }
     },
     {
         name: "Avocado, Tomato & Spinach Toast with Seeds",
@@ -35,7 +35,7 @@ const breakfasts = [
         fruitVeg: ["Avocado", "Tomatoes", "Spinach"],
         prep: "Toast bread, layer spinach, spread avocado, add tomatoes, and sprinkle seeds. Lemon juice helps absorb the iron.",
         macros: { carbs: 56, protein: 16, fat: 22, fibre: 14, iron: 7.9 },
-        shopping: { fruit: ["1 avocado", "2 tomatoes"], veg: ["Fresh spinach"], grains: ["Wholemeal bread (bakery fresh)"], pantry: ["Pumpkin seeds", "Hemp seeds", "Lemon juice"] }
+        shopping: { fruit: ["1 avocado", "2 tomatoes"], veg: ["60g spinach"], grains: ["2 slices wholemeal bread"], pantry: ["15g pumpkin seeds", "15g hemp seeds", "1 lemon"] }
     },
     {
         name: "Berry, Mango & Apricot Overnight Oats",
@@ -51,7 +51,7 @@ const breakfasts = [
         fruitVeg: ["Raspberries", "Mango"],
         prep: "Mix oats, yoghurt, chia seeds, and molasses the night before. Top with raspberries, mango, and chopped apricots in the morning.",
         macros: { carbs: 66, protein: 16, fat: 12, fibre: 13, iron: 9.7 },
-        shopping: { fruit: ["Fresh raspberries", "1 mango"], grains: ["Rolled oats"], dairy: ["Natural yoghurt"], pantry: ["Dried apricots", "Chia seeds", "Blackstrap molasses"] }
+        shopping: { fruit: ["80g raspberries", "1 mango"], grains: ["80g rolled oats"], dairy: ["150ml natural yoghurt"], pantry: ["30g dried apricots", "10g chia seeds", "15ml blackstrap molasses"] }
     },
     {
         name: "Sweet Potato, Spinach, Tomato & Egg Scramble",
@@ -67,7 +67,7 @@ const breakfasts = [
         fruitVeg: ["Sweet Potato", "Spinach", "Tomatoes"],
         prep: "Roast sweet potato (or microwave 5 min), scramble eggs with spinach and tomato, serve on toast with pumpkin seeds.",
         macros: { carbs: 58, protein: 22, fat: 16, fibre: 11, iron: 6.2 },
-        shopping: { veg: ["1 sweet potato", "Fresh spinach", "1 tomato"], grains: ["Wholemeal bread (bakery fresh)"], dairy: ["2 free-range eggs"], pantry: ["Pumpkin seeds", "Olive oil"] }
+        shopping: { veg: ["1 sweet potato", "60g spinach", "1 tomato"], grains: ["1 slice wholemeal bread"], dairy: ["2 free-range eggs"], pantry: ["15g pumpkin seeds", "10ml olive oil"] }
     },
     {
         name: "Apple, Banana & Apricot Porridge",
@@ -83,7 +83,7 @@ const breakfasts = [
         fruitVeg: ["Apple", "Banana"],
         prep: "Cook oats with milk, stir in grated apple and molasses. Top with sliced banana, chopped apricots, and pumpkin seeds.",
         macros: { carbs: 72, protein: 14, fat: 10, fibre: 12, iron: 11.0 },
-        shopping: { fruit: ["1 apple", "1 banana"], grains: ["Rolled oats"], dairy: ["Whole milk"], pantry: ["Dried apricots", "Blackstrap molasses", "Pumpkin seeds"] }
+        shopping: { fruit: ["1 apple", "1 banana"], grains: ["80g rolled oats"], dairy: ["200ml whole milk"], pantry: ["30g dried apricots", "15ml blackstrap molasses", "15g pumpkin seeds"] }
     },
     {
         name: "Tropical Spinach Smoothie Bowl",
@@ -99,7 +99,7 @@ const breakfasts = [
         fruitVeg: ["Banana", "Mango", "Pineapple", "Kiwi", "Spinach"],
         prep: "Blend banana, mango, pineapple, spinach, and coconut milk until thick. Pour into bowl, top with sliced kiwi and hemp seeds.",
         macros: { carbs: 66, protein: 12, fat: 16, fibre: 10, iron: 5.6 },
-        shopping: { fruit: ["1 banana", "1 mango", "Fresh pineapple", "1 kiwi"], veg: ["Fresh spinach"], pantry: ["Coconut milk (no emulsifiers)", "Hemp seeds"] }
+        shopping: { fruit: ["1 banana", "1 mango", "100g pineapple", "1 kiwi"], veg: ["60g spinach"], pantry: ["100ml coconut milk", "20g hemp seeds"] }
     },
     {
         name: "Wholemeal Pancakes with Berries & Banana",
@@ -115,7 +115,7 @@ const breakfasts = [
         fruitVeg: ["Banana", "Strawberries", "Blueberries"],
         prep: "Mix flour, egg, and milk into batter. Cook small pancakes. Top with banana, strawberries, blueberries, and grated dark chocolate. Vitamin C in berries boosts iron absorption.",
         macros: { carbs: 70, protein: 18, fat: 12, fibre: 10, iron: 5.9 },
-        shopping: { fruit: ["1 banana", "Fresh strawberries", "Fresh blueberries"], grains: ["Wholemeal flour"], dairy: ["1 free-range egg", "Whole milk"], pantry: ["Dark chocolate 85%+ (no emulsifiers)"] }
+        shopping: { fruit: ["1 banana", "80g strawberries", "80g blueberries"], grains: ["100g wholemeal flour"], dairy: ["1 free-range egg", "150ml whole milk"], pantry: ["20g dark chocolate 85%+"] }
     }
 ];
 
@@ -131,7 +131,7 @@ const morningSnacks = [
         fruitVeg: ["Apple", "Celery"],
         prep: "Slice apple and celery, dip in pumpkin seed butter. Vitamin C in apple helps absorb the iron.",
         macros: { carbs: 30, protein: 5, fat: 10, fibre: 6, iron: 2.5 },
-        shopping: { fruit: ["1 apple"], veg: ["Celery"], pantry: ["Pumpkin seed butter", "Ground cinnamon"] }
+        shopping: { fruit: ["1 apple"], veg: ["2 celery sticks"], pantry: ["15g pumpkin seed butter", "5g ground cinnamon"] }
     },
     {
         name: "Carrot, Cucumber & Pepper with Lentil Hummus",
@@ -144,7 +144,7 @@ const morningSnacks = [
         fruitVeg: ["Carrots", "Cucumber", "Red Pepper"],
         prep: "Cut veg into sticks and serve with iron-rich lentil hummus. Vitamin C in pepper and lemon boosts iron absorption.",
         macros: { carbs: 26, protein: 8, fat: 8, fibre: 8, iron: 3.2 },
-        shopping: { veg: ["2 carrots", "1 cucumber", "1 red pepper"], pantry: ["Chickpeas (tinned or dried)", "Red lentils", "Tahini", "Lemon", "Garlic"] }
+        shopping: { veg: ["2 carrots", "1 cucumber", "1 red pepper"], pantry: ["100g chickpeas", "50g red lentils", "15g tahini", "1 lemon", "1 garlic bulb"] }
     },
     {
         name: "Banana, Oat & Apricot Energy Bites",
@@ -158,7 +158,7 @@ const morningSnacks = [
         fruitVeg: ["Banana"],
         prep: "Mix all ingredients including cacao powder, roll into balls, refrigerate for 30 min.",
         macros: { carbs: 38, protein: 8, fat: 9, fibre: 5, iron: 4.8 },
-        shopping: { fruit: ["1 banana"], grains: ["Rolled oats"], pantry: ["Natural peanut butter", "Dried apricots", "Raw cacao powder"] }
+        shopping: { fruit: ["1 banana"], grains: ["40g rolled oats"], pantry: ["15g peanut butter", "30g dried apricots", "10g raw cacao powder"] }
     },
     {
         name: "Orange, Kiwi, Dates & Nuts",
@@ -171,7 +171,7 @@ const morningSnacks = [
         fruitVeg: ["Oranges", "Kiwi"],
         prep: "Peel and segment orange, slice kiwi, enjoy with dates and nuts. Vitamin C in the fruit boosts iron absorption.",
         macros: { carbs: 44, protein: 5, fat: 10, fibre: 7, iron: 2.7 },
-        shopping: { fruit: ["1 orange", "1 kiwi"], pantry: ["Medjool dates", "Raw unsalted cashews", "Raw unsalted almonds"] }
+        shopping: { fruit: ["1 orange", "1 kiwi"], pantry: ["3 medjool dates", "15g cashews", "15g almonds"] }
     },
     {
         name: "Grapes, Satsuma & Dark Chocolate Oatcakes",
@@ -184,7 +184,7 @@ const morningSnacks = [
         fruitVeg: ["Grapes", "Satsuma"],
         prep: "Snap dark chocolate onto oatcakes, eat alongside grapes and satsuma segments.",
         macros: { carbs: 38, protein: 4, fat: 9, fibre: 4, iron: 3.5 },
-        shopping: { fruit: ["Grapes", "2 satsumas"], grains: ["Plain oatcakes (no preservatives)"], pantry: ["Dark chocolate 85%+ (no emulsifiers)"] }
+        shopping: { fruit: ["100g grapes", "1 satsuma"], grains: ["2 oatcakes"], pantry: ["20g dark chocolate 85%+"] }
     },
     {
         name: "Pear, Plum & Pumpkin Seeds",
@@ -198,7 +198,7 @@ const morningSnacks = [
         fruitVeg: ["Pear", "Plum"],
         prep: "Slice pear and plum, eat with walnuts, pumpkin seeds, and a drizzle of honey.",
         macros: { carbs: 36, protein: 5, fat: 12, fibre: 6, iron: 3.3 },
-        shopping: { fruit: ["1 pear", "1 plum"], pantry: ["Walnuts", "Pumpkin seeds", "Raw honey"] }
+        shopping: { fruit: ["1 pear", "1 plum"], pantry: ["15g walnuts", "15g pumpkin seeds", "10g raw honey"] }
     },
     {
         name: "Melon, Berries & Cottage Cheese",
@@ -212,7 +212,7 @@ const morningSnacks = [
         fruitVeg: ["Melon", "Blueberries"],
         prep: "Slice melon, add blueberries, top with cottage cheese, hemp seeds, and sunflower seeds.",
         macros: { carbs: 28, protein: 10, fat: 8, fibre: 4, iron: 3.1 },
-        shopping: { fruit: ["1 cantaloupe melon", "Fresh blueberries"], dairy: ["Natural cottage cheese"], pantry: ["Hemp seeds", "Sunflower seeds"] }
+        shopping: { fruit: ["200g cantaloupe melon", "80g blueberries"], dairy: ["45g cottage cheese"], pantry: ["10g hemp seeds", "10g sunflower seeds"] }
     }
 ];
 
@@ -230,7 +230,7 @@ const afternoonSnacks = [
         fruitVeg: ["Mango", "Kiwi"],
         prep: "Layer yoghurt, mango, kiwi, oats, and pumpkin seeds in a pot. Drizzle with molasses.",
         macros: { carbs: 38, protein: 10, fat: 8, fibre: 5, iron: 4.3 },
-        shopping: { fruit: ["1 mango", "1 kiwi"], grains: ["Rolled oats"], dairy: ["Natural yoghurt"], pantry: ["Pumpkin seeds", "Blackstrap molasses"] }
+        shopping: { fruit: ["1 mango", "1 kiwi"], grains: ["15g rolled oats"], dairy: ["120g natural yoghurt"], pantry: ["15g pumpkin seeds", "15ml blackstrap molasses"] }
     },
     {
         name: "Spinach, Pepper & Carrot Pitta with Lentil Hummus",
@@ -244,7 +244,7 @@ const afternoonSnacks = [
         fruitVeg: ["Red Pepper", "Carrots", "Spinach"],
         prep: "Warm pitta, fill with lentil hummus, spinach, grated carrot, and pepper strips. Vitamin C in pepper boosts iron absorption.",
         macros: { carbs: 42, protein: 10, fat: 7, fibre: 8, iron: 5.1 },
-        shopping: { veg: ["1 red pepper", "1 carrot", "Fresh spinach"], grains: ["Wholemeal pitta bread"], pantry: ["Red lentils", "Chickpeas (tinned or dried)", "Tahini"] }
+        shopping: { veg: ["1 red pepper", "1 carrot", "60g spinach"], grains: ["1 wholemeal pitta"], pantry: ["50g red lentils", "100g chickpeas", "15g tahini"] }
     },
     {
         name: "Dark Chocolate Banana & Strawberry Bites",
@@ -258,7 +258,7 @@ const afternoonSnacks = [
         fruitVeg: ["Banana", "Strawberries"],
         prep: "Melt chocolate, dip banana slices and strawberry halves halfway, sprinkle hemp seeds, freeze on baking paper for 20 min.",
         macros: { carbs: 38, protein: 5, fat: 12, fibre: 6, iron: 6.6 },
-        shopping: { fruit: ["1 banana", "Fresh strawberries"], pantry: ["Dark chocolate 85%+ (no emulsifiers)", "Hemp seeds", "Sea salt"] }
+        shopping: { fruit: ["1 banana", "80g strawberries"], pantry: ["40g dark chocolate 85%+", "10g hemp seeds"] }
     },
     {
         name: "Pear, Apple & Walnut Rice Cakes",
@@ -273,7 +273,7 @@ const afternoonSnacks = [
         fruitVeg: ["Pear", "Apple"],
         prep: "Spread almond butter on rice cakes, top with pear and apple slices, walnuts, and pumpkin seeds.",
         macros: { carbs: 42, protein: 7, fat: 14, fibre: 7, iron: 3.9 },
-        shopping: { fruit: ["1 pear", "1 apple"], grains: ["Brown rice cakes"], pantry: ["Natural almond butter", "Pumpkin seeds", "Walnuts"] }
+        shopping: { fruit: ["1 pear", "1 apple"], grains: ["2 brown rice cakes"], pantry: ["15g almond butter", "15g pumpkin seeds", "15g walnuts"] }
     },
     {
         name: "Celery, Carrot Sticks, Raisins & Tahini",
@@ -287,7 +287,7 @@ const afternoonSnacks = [
         fruitVeg: ["Celery", "Carrots"],
         prep: "Dip celery and carrot sticks in tahini, top with raisins. Lemon juice boosts iron absorption.",
         macros: { carbs: 26, protein: 6, fat: 12, fibre: 5, iron: 3.2 },
-        shopping: { veg: ["Celery", "1 carrot"], pantry: ["Tahini", "Raisins", "Lemon"] }
+        shopping: { veg: ["3 celery sticks", "1 carrot"], pantry: ["30g tahini", "15g raisins", "1 lemon"] }
     },
     {
         name: "Rice Cakes with Banana, Berries & Cacao",
@@ -302,7 +302,7 @@ const afternoonSnacks = [
         fruitVeg: ["Banana", "Raspberries"],
         prep: "Top rice cakes with banana slices and raspberries, sprinkle pumpkin seeds and cacao powder, drizzle honey.",
         macros: { carbs: 44, protein: 5, fat: 6, fibre: 5, iron: 3.3 },
-        shopping: { fruit: ["1 banana", "Fresh raspberries"], grains: ["Brown rice cakes"], pantry: ["Pumpkin seeds", "Raw cacao powder", "Raw honey"] }
+        shopping: { fruit: ["1 banana", "80g raspberries"], grains: ["2 brown rice cakes"], pantry: ["15g pumpkin seeds", "5g raw cacao powder", "10g raw honey"] }
     },
     {
         name: "Spinach, Cucumber & Tomato Oatcakes with Tahini",
@@ -316,7 +316,7 @@ const afternoonSnacks = [
         fruitVeg: ["Cucumber", "Spinach", "Tomatoes"],
         prep: "Spread tahini on oatcakes, layer with spinach, cucumber, and cherry tomatoes.",
         macros: { carbs: 28, protein: 8, fat: 10, fibre: 5, iron: 5.5 },
-        shopping: { veg: ["1 cucumber", "Fresh spinach", "Cherry tomatoes"], grains: ["Plain oatcakes (no preservatives)"], pantry: ["Tahini"] }
+        shopping: { veg: ["1 cucumber", "60g spinach", "100g cherry tomatoes"], grains: ["2 oatcakes"], pantry: ["30g tahini"] }
     }
 ];
 
@@ -520,14 +520,29 @@ function renderShoppingList() {
                 var items = meal.shopping[cat];
                 for (var it = 0; it < items.length; it++) {
                     var item = items[it];
-                    // Extract numeric quantity and base name
-                    var numMatch = item.match(/^(\d+)\s+(.+)$/);
-                    var qty = numMatch ? parseInt(numMatch[1], 10) : 0;
-                    var baseName = numMatch ? numMatch[2] : item;
+                    // Extract quantity, unit, and base name
+                    // Matches: "80g rolled oats", "200ml whole milk", "2 carrots", "1 lemon"
+                    var gMatch = item.match(/^(\d+)(g|ml)\s+(.+)$/);
+                    var numMatch = !gMatch ? item.match(/^(\d+)\s+(.+)$/) : null;
+
+                    var qty, unit, baseName;
+                    if (gMatch) {
+                        qty = parseInt(gMatch[1], 10);
+                        unit = gMatch[2];
+                        baseName = gMatch[3];
+                    } else if (numMatch) {
+                        qty = parseInt(numMatch[1], 10);
+                        unit = '';
+                        baseName = numMatch[2];
+                    } else {
+                        qty = 0;
+                        unit = '';
+                        baseName = item;
+                    }
                     var key = baseName.toLowerCase().replace(/\s+/g, ' ').trim();
 
                     if (!categories[cat][key]) {
-                        categories[cat][key] = { baseName: baseName, totalQty: qty, times: 1 };
+                        categories[cat][key] = { baseName: baseName, totalQty: qty, unit: unit, times: 1 };
                     } else {
                         categories[cat][key].totalQty += qty;
                         categories[cat][key].times++;
@@ -549,12 +564,12 @@ function renderShoppingList() {
         for (var q = 0; q < catItems.length; q++) {
             var entry = catItems[q];
             var label;
-            if (entry.totalQty > 0) {
-                // Has a numeric quantity - show total e.g. "7 bananas"
+            if (entry.unit) {
+                // Has g or ml unit - show total e.g. "560g rolled oats"
+                label = entry.totalQty + entry.unit + ' ' + entry.baseName;
+            } else if (entry.totalQty > 0) {
+                // Has a numeric count - show total e.g. "7 bananas"
                 label = entry.totalQty + ' ' + pluralise(entry.baseName, entry.totalQty);
-            } else if (entry.times > 1) {
-                // No number but appears multiple times e.g. "Fresh spinach x5"
-                label = entry.baseName + ' x' + entry.times;
             } else {
                 label = entry.baseName;
             }
