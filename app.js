@@ -54,20 +54,20 @@ const breakfasts = [
         shopping: { fruit: ["80g raspberries", "1 mango"], grains: ["80g rolled oats"], dairy: ["150ml natural yoghurt"], pantry: ["30g dried apricots", "10g chia seeds", "15ml blackstrap molasses"] }
     },
     {
-        name: "Sweet Potato, Spinach, Tomato & Egg Scramble",
+        name: "Spinach, Tomato & Pepper Egg Scramble on Toast",
         ingredients: [
-            "1 medium sweet potato, cubed and roasted",
             "2 free-range eggs, scrambled (1.2mg iron)",
             "Large handful of fresh spinach (1.6mg iron)",
             "1 fresh tomato, chopped",
-            "1 slice wholemeal bread (0.9mg iron)",
+            "1/2 red pepper, diced",
+            "2 slices wholemeal bread (1.8mg iron)",
             "1 tbsp pumpkin seeds (2.5mg iron)",
             "Drizzle of olive oil"
         ],
-        fruitVeg: ["Sweet Potato", "Spinach", "Tomatoes"],
-        prep: "Roast sweet potato (or microwave 5 min), scramble eggs with spinach and tomato, serve on toast with pumpkin seeds.",
-        macros: { carbs: 58, protein: 22, fat: 16, fibre: 11, iron: 6.2 },
-        shopping: { veg: ["1 sweet potato", "60g spinach", "1 tomato"], grains: ["1 slice wholemeal bread"], dairy: ["2 free-range eggs"], pantry: ["15g pumpkin seeds", "10ml olive oil"] }
+        fruitVeg: ["Spinach", "Tomatoes", "Red Pepper"],
+        prep: "Fry pepper in olive oil, add spinach and tomato, scramble in the eggs. Serve on wholemeal toast with pumpkin seeds.",
+        macros: { carbs: 50, protein: 24, fat: 18, fibre: 10, iron: 7.1 },
+        shopping: { veg: ["60g spinach", "1 tomato", "1 red pepper"], grains: ["2 slices wholemeal bread"], dairy: ["2 free-range eggs"], pantry: ["15g pumpkin seeds", "10ml olive oil"] }
     },
     {
         name: "Apple, Banana & Apricot Porridge",
