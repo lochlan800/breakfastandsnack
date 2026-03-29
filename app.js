@@ -520,11 +520,17 @@ function renderShoppingList() {
                 var items = meal.shopping[cat];
                 for (var it = 0; it < items.length; it++) {
                     var item = items[it];
-                    var key = item.replace(/^\d+\s*/, '').toLowerCase();
+                    // Extract numeric quantity and base name
+                    var numMatch = item.match(/^(\d+)\s+(.+)$/);
+                    var qty = numMatch ? parseInt(numMatch[1], 10) : 0;
+                    var baseName = numMatch ? numMatch[2] : item;
+                    var key = baseName.toLowerCase().replace(/\s+/g, ' ').trim();
+
                     if (!categories[cat][key]) {
-                        categories[cat][key] = { display: item, count: 1 };
+                        categories[cat][key] = { baseName: baseName, totalQty: qty, times: 1 };
                     } else {
-                        categories[cat][key].count++;
+                        categories[cat][key].totalQty += qty;
+                        categories[cat][key].times++;
                     }
                 }
             }
@@ -541,14 +547,38 @@ function renderShoppingList() {
         if (catItems.length === 0) continue;
         html += '<div class="shopping-category"><h3>' + categoryLabels[catKey] + '</h3><ul>';
         for (var q = 0; q < catItems.length; q++) {
-            var qty = catItems[q].count > 1 ? ' (x' + catItems[q].count + ' across the week)' : '';
-            html += '<li><label class="shop-item"><input type="checkbox"><span>' + catItems[q].display + qty + '</span></label></li>';
+            var entry = catItems[q];
+            var label;
+            if (entry.totalQty > 0) {
+                // Has a numeric quantity - show total e.g. "7 bananas"
+                label = entry.totalQty + ' ' + pluralise(entry.baseName, entry.totalQty);
+            } else if (entry.times > 1) {
+                // No number but appears multiple times e.g. "Fresh spinach x5"
+                label = entry.baseName + ' x' + entry.times;
+            } else {
+                label = entry.baseName;
+            }
+            html += '<li><label class="shop-item"><input type="checkbox"><span>' + label + '</span></label></li>';
         }
         html += '</ul></div>';
     }
 
     listEl.innerHTML = html;
     updateShoppingProgress();
+}
+
+function pluralise(name, qty) {
+    if (qty <= 1) return name;
+    var lower = name.toLowerCase();
+    // Already plural
+    if (lower.match(/(s|berries|cherries|oats|seeds|nuts|dates|apricots|raisins|lentils|flakes)$/)) return name;
+    // Special cases
+    if (lower.match(/tomato$/)) return name.replace(/tomato$/i, 'tomatoes');
+    if (lower.match(/mango$/)) return name.replace(/mango$/i, 'mangoes');
+    if (lower.match(/potato$/)) return name.replace(/potato$/i, 'potatoes');
+    if (lower.match(/peach$/)) return name.replace(/peach$/i, 'peaches');
+    // Default: add s
+    return name + 's';
 }
 
 function updateShoppingProgress() {
