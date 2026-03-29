@@ -288,6 +288,40 @@ header h1 {
 .protein-bar { background: linear-gradient(90deg, #ef5350, #e57373); }
 .fat-bar { background: linear-gradient(90deg, #42a5f5, #64b5f6); }
 .fibre-bar { background: linear-gradient(90deg, #66bb6a, #81c784); }
+.iron-bar { background: linear-gradient(90deg, #8d6e63, #a1887f); }
+
+.iron-tracker {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.iron-tracker h3 {
+    font-size: 1rem;
+    color: #6d4c41;
+    margin-bottom: 0.6rem;
+}
+
+.iron-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.iron-amount {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6d4c41;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.iron-note {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
 
 .macro-pct {
     width: 40px;
